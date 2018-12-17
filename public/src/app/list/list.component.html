@@ -1,0 +1,33 @@
+<div>
+  <nav class="navbar" style="text-align: center;">
+    <div class="container-fluid">
+      <div class="navbar-header">
+          <h1>
+              Movie List
+            </h1>
+      </div>
+      <div class="navbar">
+        <a class="navbar-brand" [routerLink]="['/movie/new']"><button class="btn btn-primary">Add a Movie</button></a>
+      </div>
+    </div>
+  </nav>
+  <table class="table">
+      <thead>
+        <tr>
+          <th>Movie Title</th>
+          <th>Average Rating</th>
+          <th>Available Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let movie of movies">
+          <td> {{ movie.title }} </td>
+          <td> {{ movie.avgreview }} </td>
+          <td>
+            <a [routerLink]="['/movie', movie._id]"><button class = 'btn btn-success'>Read Reviews</button></a>
+            <a [routerLink]="['/review', movie._id]"><button class = 'btn btn-default'>Write Reviews</button></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>

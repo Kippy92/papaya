@@ -1,0 +1,40 @@
+<form (submit)="create()">
+    <div class ="form-group">
+      <label for="movie.title">Movie Title: </label>
+      <div>
+        <input type="text" name="movie.title" [(ngModel)]="movie.title" placeholder="Title" required minlength='3' #movietitle="ngModel">
+        <p *ngIf="movietitle.errors">Movie Title is Required (3 characters minimum)</p>
+        <p *ngIf="errors.title"> {{errors.title.message}}</p>
+      </div>
+    </div>
+    <div class ="form-group">
+      <label for="movie.initial.name">Your Name: </label>
+      <div>
+        <input type="text" name="movie.initial.name" [(ngModel)]="movie.initial.name" placeholder="Name" required minlength='3' #moviename="ngModel">
+        <p *ngIf="moviename.errors">Name is Required (3 characters minimum)</p>
+        <p *ngIf="errors.initial"> {{errors.initial.message}}</p>
+      </div>
+    </div>
+    <div class = "form-group">
+      <label for="movie.initial.rating">Rating: </label>
+      <p>
+      <select name="movie.initial.rating" [(ngModel)]="movie.initial.rating">
+        <option value="5">★★★★★</option>
+        <option value="4">★★★★☆</option>
+        <option value="3">★★★☆☆</option>
+        <option value="2">★★☆☆☆</option>
+        <option value="1">★☆☆☆☆</option>
+      </select>
+      </p>
+    </div>
+    <div class = "form-group">
+      <label for="movie.initial.comment">Comment here: </label>
+      <div>
+        <textarea name="movie.initial.comment" [(ngModel)]="movie.initial.comment" cols=50 rows=5 required minlength='3' #moviecomment="ngModel"></textarea>
+        <p *ngIf="moviecomment.errors">Comment is Required (3 characters minimum)</p>
+        <p *ngIf="errors.initial"> {{errors.initial.message}}</p>
+      </div>
+    </div>
+    <input type="submit" value="Submit" class='btn btn-success'/>
+    <a [routerLink]="['/']"><button class="btn btn-primary">Cancel</button></a>
+  </form>

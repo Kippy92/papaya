@@ -1,0 +1,30 @@
+<div>
+    <nav class="navbar" style="text-align: center;">
+      <div class="container-fluid">
+        <div class="navbar-header">
+            <h1>
+                Reviews for {{ movie.title }}
+              </h1>
+        </div>
+        <div class="navbar">
+          <button class='btn btn-danger' (click) = "delete(movie._id)">Delete</button>
+        </div>
+      </div>
+    </nav>
+    <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Stars</th>
+            <th>Reviews</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let review of movie.reviews">
+            <td> {{ review.name }} </td>
+            <td> {{ review.rating }} </td>
+            <td> {{ review.comment }} </td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
